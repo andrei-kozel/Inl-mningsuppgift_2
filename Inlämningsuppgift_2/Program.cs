@@ -42,6 +42,7 @@ namespace Inlämningsuppgift_2
         System.Console.Write("Prova en gång till. Skriv tex 'Andrei K': ");
         name = Console.ReadLine().ToLower();
         person = FindPerson(name);
+        if (name == "q") CloseApp();
       }
       person.Describe();
 
@@ -52,7 +53,12 @@ namespace Inlämningsuppgift_2
       Console.WriteLine("[1]-Tillbaka, [2]-Ta Bort Person, [q]-Quite");
       Console.Write("Vad vill du göra? ");
       string choice = Console.ReadLine();
-      switch (choice)
+      HandleInput(choice, person);
+    }
+
+    private static void HandleInput(string input, Person person = null)
+    {
+      switch (input)
       {
         case "1":
           RunApp();
@@ -62,8 +68,7 @@ namespace Inlämningsuppgift_2
           RunApp();
           break;
         case "q":
-          Console.Clear();
-          Console.WriteLine("Bye! Bye!");
+          CloseApp();
           break;
       }
     }
@@ -96,18 +101,22 @@ namespace Inlämningsuppgift_2
       }
       Console.WriteLine();
       Console.WriteLine("[OBS]: Några av oss känns inte super bekvämt med info upp på GitHub (som fullt namn).");
-      Console.WriteLine();
     }
 
     // if passed password(pw) equals password => return true
     // otherwise => return false
     private static bool CheckPassword(string pw) => password == pw;
     private static void DeletePerson(Person person) => group.Remove(person);
-    private static void CloseApp() => Environment.Exit(0);
+    private static void CloseApp()
+    {
+      Console.Clear();
+      Console.WriteLine("Bye! Bye! Bye!");
+      Environment.Exit(0);
+    }
 
     private static void CreateGroup()
     {
-      var andreiK = new Person
+      Person AndreiK = new Person
       {
         age = 26,
         astrologicalSign = AstrologicalSign.Stenbocken,
@@ -122,9 +131,9 @@ namespace Inlämningsuppgift_2
         programmingDrive = "Problemlösning",
         superpower = "Instant olive detection"
       };
-      group.Add(andreiK);
+      group.Add(AndreiK);
 
-      var maLin = new Person
+      Person MaLin = new Person
       {
         age = 29,
         astrologicalSign = AstrologicalSign.Fiskarna,
@@ -139,9 +148,9 @@ namespace Inlämningsuppgift_2
         programmingDrive = "Skapande",
         superpower = "Mrs.Hindsight"
       };
-      group.Add(maLin);
+      group.Add(MaLin);
 
-      var leroy = new Person
+      Person Leroy = new Person
       {
         age = 32,
         astrologicalSign = AstrologicalSign.Vågen,
@@ -156,7 +165,7 @@ namespace Inlämningsuppgift_2
         programmingDrive = "Dynamisk",
         superpower = "Flyga"
       };
-      group.Add(leroy);
+      group.Add(Leroy);
     }
   }
 }
