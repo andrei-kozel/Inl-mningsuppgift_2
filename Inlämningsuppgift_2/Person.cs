@@ -26,7 +26,16 @@ namespace Inlämningsuppgift_2
     public void Describe()
     {
       Console.Clear();
-      Console.WriteLine($"1. Namn: {fullName}, \n2. Ålder: {age} år, \n3. Födelsedag: {birthday.ToString("MMMM dd")}, \n4. Favoritmat: {favoriteFood}, \n5. Favoritband: {favoriteBand}, \n6. Favoritfilm: {favoriteFilm["title"]} - {favoriteFilm["ganre"]} - [{favoriteFilm["release"]}], \n7. Älskar: {likes}, \n8. Hatar: {hates}, \n9. Stjärntecken: {astrologicalSign}, \n10. Superpower: {superpower}, \n11. Största driv till programmering: {programmingDrive}");
+      Console.WriteLine($"1. Namn: {fullName},");
+      Console.WriteLine($"2. Ålder: {age} år,");
+      Console.WriteLine($"3. Födelsedag: {birthday.ToString("MMMM dd")},");
+      Console.WriteLine($"4. Favoritmat: {favoriteFood},");
+      Console.WriteLine($"5. Favoritband: {favoriteBand},");
+      Console.WriteLine($"6. Favoritfilm: {favoriteFilm["title"]} - {favoriteFilm["ganre"]} - [{favoriteFilm["release"]}],");
+      Console.WriteLine($"7. Älskar: {likes},");
+      Console.WriteLine($"8. Hatar: {hates},");
+      Console.WriteLine($"9. Stjärntecken: {astrologicalSign},");
+      Console.WriteLine($"10. Superpower: {superpower}, \n11. Största driv till programmering: {programmingDrive}");
       Console.WriteLine();
     }
   }
