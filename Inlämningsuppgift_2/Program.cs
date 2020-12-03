@@ -80,7 +80,7 @@ namespace Inlämningsuppgift_2
       // otherwise, return null
       foreach (Person p in group)
       {
-        if (p.fullName.ToLower() == name) return p;
+        if (p.Name.ToLower() == name) return p;
       }
       return null;
     }
@@ -95,7 +95,7 @@ namespace Inlämningsuppgift_2
       int i = 1;
       foreach (Person p in group)
       {
-        Console.WriteLine($"{i}. {p.fullName},");
+        Console.WriteLine($"{i}. {p.Name},");
         // increase the index by 1 after each iteration
         i++;
       }
@@ -118,52 +118,52 @@ namespace Inlämningsuppgift_2
     {
       Person AndreiK = new Person
       {
-        age = 26,
-        astrologicalSign = AstrologicalSign.Stenbocken,
-        birthday = new DateTime(1994, 1, 12),
-        favoriteBand = "Two Steps from Hell",
-        favoriteFilm = new Dictionary<string, string>{{"title","The Lord of the Rings"},
+        Age = 26,
+        AstrologicalSign = AstrologicalSign.Stenbocken,
+        Birthday = new DateTime(1994, 1, 12),
+        FavoriteBand = "Two Steps from Hell",
+        FavoriteFilm = new Dictionary<string, string>{{"title","The Lord of the Rings"},
         {"ganre","Fantasy/Adventure"}, {"release","2001"}},
-        favoriteFood = "Carbonara",
-        fullName = "Andrei K",
-        hates = "Oliver",
-        likes = "Resa",
-        programmingDrive = "Problemlösning",
-        superpower = "Instant olive detection"
+        FavoriteFood = "Carbonara",
+        Name = "Andrei K",
+        Hates = "Oliver",
+        Likes = "Resa",
+        ProgrammingDrive = "Problemlösning",
+        Superpower = "Instant olive detection"
       };
       group.Add(AndreiK);
 
       Person MaLin = new Person
       {
-        age = 29,
-        astrologicalSign = AstrologicalSign.Fiskarna,
-        birthday = new DateTime(1994, 3, 13),
-        favoriteBand = "Modest Mouse",
-        favoriteFilm = new Dictionary<string, string>{{"title","Snatch"},
+        Age = 29,
+        AstrologicalSign = AstrologicalSign.Fiskarna,
+        Birthday = new DateTime(1994, 3, 13),
+        FavoriteBand = "Modest Mouse",
+        FavoriteFilm = new Dictionary<string, string>{{"title","Snatch"},
         {"ganre","Comedy/Crime"}, {"release","2000"}},
-        favoriteFood = "Rårakor",
-        fullName = "MA.Lin",
-        hates = "Banan",
-        likes = "Höst/Vinter",
-        programmingDrive = "Skapande",
-        superpower = "Mrs.Hindsight"
+        FavoriteFood = "Rårakor",
+        Name = "MA.Lin",
+        Hates = "Banan",
+        Likes = "Höst/Vinter",
+        ProgrammingDrive = "Skapande",
+        Superpower = "Mrs.Hindsight"
       };
       group.Add(MaLin);
 
       Person Leroy = new Person
       {
-        age = 32,
-        astrologicalSign = AstrologicalSign.Vågen,
-        birthday = new DateTime(1994, 10, 22),
-        favoriteBand = "We the best music",
-        favoriteFilm = new Dictionary<string, string>{{"title","Matrix"},
+        Age = 32,
+        AstrologicalSign = AstrologicalSign.Vågen,
+        Birthday = new DateTime(1994, 10, 22),
+        FavoriteBand = "We the best music",
+        FavoriteFilm = new Dictionary<string, string>{{"title","Matrix"},
         {"ganre","Action/Sci-fi"}, {"release","1999"}},
-        favoriteFood = "Pizza",
-        fullName = "Leroy",
-        hates = "Kaviar",
-        likes = "Choklad",
-        programmingDrive = "Dynamisk",
-        superpower = "Flyga"
+        FavoriteFood = "Pizza",
+        Name = "Leroy",
+        Hates = "Kaviar",
+        Likes = "Choklad",
+        ProgrammingDrive = "Dynamisk",
+        Superpower = "Flyga"
       };
       group.Add(Leroy);
     }
