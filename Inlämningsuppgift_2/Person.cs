@@ -100,7 +100,8 @@ namespace Inlämningsuppgift_2
       Console.WriteLine($"7. Älskar: {likes},");
       Console.WriteLine($"8. Hatar: {hates},");
       Console.WriteLine($"9. Stjärntecken: {astrologicalSign},");
-      Console.WriteLine($"10. Superpower: {superpower}, \n11. Största driv till programmering: {programmingDrive}");
+      Console.WriteLine($"10. Superpower: {superpower}");
+      Console.WriteLine($"11. Största driv till programmering: {programmingDrive}");
       Console.WriteLine();
     }
   }
