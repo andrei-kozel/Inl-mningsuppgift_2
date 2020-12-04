@@ -49,7 +49,7 @@ namespace Inlämningsuppgift_2
 
       // Ask the user what he wants to do with this information
       // 1 - go back
-      // 2 - delete perosn from the list 
+      // 2 - delete person from the list 
       // 3 - exit
       Console.WriteLine("[1]-Tillbaka, [2]-Ta Bort Person, [q]-Quite");
       Console.Write("Vad vill du göra? ");
