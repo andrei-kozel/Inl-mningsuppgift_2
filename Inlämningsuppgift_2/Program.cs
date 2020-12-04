@@ -5,43 +5,44 @@ namespace Inlämningsuppgift_2
 {
   class Program
   {
-    private const string password = "götebuggarna";
-    private static List<Person> group = new List<Person>();
+    private const string PASSWORD = "götebuggarna";
 
     // Main method
     static void Main(string[] args)
     {
+      // Create BasGrupp
+      BaseGroup Group = new BaseGroup("Götebuggarna");
       // Welcome user and ask to enter a password
       Console.WriteLine("Välkommen!");
       Console.Write("Ange ditt lösenord: ");
-      string pw = Console.ReadLine().ToLower();
 
       // check the password. If the password is correct - run the app
-      if (CheckPassword(pw))
+      string password = Console.ReadLine().ToLower();
+      if (CheckPassword(password))
       {
-        CreateGroup();
-        RunApp();
+        CreateGroup(Group);
+        RunApp(Group);
       }
       else Console.WriteLine("Fel lösenord!");
     }
 
-    private static void RunApp()
+    private static void RunApp(BaseGroup Group)
     {
-      PrintGroup();
+      Group.PrintGroup();
       // Asking the user to enter the name of the person to show more info
       // Or enter q to exit
       Console.WriteLine("[q] - Stänga");
-      Console.Write("Vaisa mer info (skriv 'Namn E'): ");
+      Console.Write("Visa mer info (skriv 'Namn E'): ");
       string name = Console.ReadLine().ToLower();
       if (name == "q") CloseApp();
-      Person person = FindPerson(name);
+      Person person = Group.FindPerson(name);
       // If the person is null - ask the user again and again.
       while (person == null)
       {
         System.Console.WriteLine("Jag har inte hittat någon :(");
         System.Console.Write("Prova en gång till. Skriv tex 'Andrei K': ");
         name = Console.ReadLine().ToLower();
-        person = FindPerson(name);
+        person = Group.FindPerson(name);
         if (name == "q") CloseApp();
       }
       person.Describe();
@@ -52,61 +53,26 @@ namespace Inlämningsuppgift_2
       // 3 - exit
       Console.WriteLine("[1]-Tillbaka, [2]-Ta Bort Person, [q]-Quite");
       Console.Write("Vad vill du göra? ");
-      string choice = Console.ReadLine();
-      HandleInput(choice, person);
-    }
-
-    private static void HandleInput(string input, Person person = null)
-    {
+      string input = Console.ReadLine();
       switch (input)
       {
         case "1":
-          RunApp();
+          RunApp(Group);
           break;
         case "2":
-          DeletePerson(person);
-          RunApp();
+          Group.RemovePerson(person);
+          RunApp(Group);
           break;
         case "q":
           CloseApp();
           break;
       }
     }
-
-    private static Person FindPerson(string name)
-    {
-      // check every person
-      // if passed name equals to the Person p name => return Person p
-      // otherwise, return null
-      foreach (Person p in group)
-      {
-        if (p.Name.ToLower() == name) return p;
-      }
-      return null;
-    }
-
-    // print every person name from the group list  
-    private static void PrintGroup()
-    {
-      Console.Clear();
-      Console.WriteLine("Här är våran basgrupp:");
-      Console.WriteLine("----------------------");
-      // index
-      int i = 1;
-      foreach (Person p in group)
-      {
-        Console.WriteLine($"{i}. {p.Name},");
-        // increase the index by 1 after each iteration
-        i++;
-      }
-      Console.WriteLine();
-      Console.WriteLine("[OBS]: Några av oss känns inte super bekvämt med info upp på GitHub (som fullt namn).");
-    }
-
     // if passed password(pw) equals password => return true
     // otherwise => return false
-    private static bool CheckPassword(string pw) => password == pw;
-    private static void DeletePerson(Person person) => group.Remove(person);
+    private static bool CheckPassword(string pw) => PASSWORD == pw;
+
+    // Close app
     private static void CloseApp()
     {
       Console.Clear();
@@ -114,7 +80,7 @@ namespace Inlämningsuppgift_2
       Environment.Exit(0);
     }
 
-    private static void CreateGroup()
+    private static void CreateGroup(BaseGroup Group)
     {
       Person AndreiK = new Person
       {
@@ -131,7 +97,7 @@ namespace Inlämningsuppgift_2
         ProgrammingDrive = "Problemlösning",
         Superpower = "Instant olive detection"
       };
-      group.Add(AndreiK);
+      Group.AddPerson(AndreiK);
 
       Person MaLin = new Person
       {
@@ -148,7 +114,8 @@ namespace Inlämningsuppgift_2
         ProgrammingDrive = "Skapande",
         Superpower = "Mrs.Hindsight"
       };
-      group.Add(MaLin);
+      Group.AddPerson(MaLin);
+
 
       Person Leroy = new Person
       {
@@ -165,7 +132,8 @@ namespace Inlämningsuppgift_2
         ProgrammingDrive = "Dynamisk",
         Superpower = "Flyga"
       };
-      group.Add(Leroy);
+      Group.AddPerson(Leroy);
+
     }
   }
 }
